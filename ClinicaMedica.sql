@@ -1,3 +1,10 @@
+USE master;
+GO
+
+ CREATE DATABASE ClinicaMedica; 
+ Use ClinicaMedica; 
+ GO
+
 CREATE TABLE Persona (
     idPersona INT IDENTITY(1,1) PRIMARY KEY,
     Nombre VARCHAR(255) NOT NULL,
@@ -145,7 +152,7 @@ CREATE TABLE Turnos (
 );
 
 CREATE TABLE HistorialMedico (
-    idHistorialMedico INT  PRIMARY KEY,
+    idHistorialMedico INT IDENTITY(1,1) PRIMARY KEY,
     idTurno INT NOT NULL,
     FechaAtencion DATE NOT NULL,
     MotivoConsulta VARCHAR(255),
@@ -156,4 +163,15 @@ CREATE TABLE HistorialMedico (
     CONSTRAINT fk_historial_turno
         FOREIGN KEY (idTurno)
         REFERENCES Turnos(idTurno)
-);
+); 
+
+
+ALTER TABLE HorarioAtencion
+ALTER COLUMN horaInicio TIME(0) NOT NULL;
+
+ALTER TABLE HorarioAtencion
+ALTER COLUMN horaFin TIME(0) NOT NULL;  
+
+
+
+
