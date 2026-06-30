@@ -18,7 +18,8 @@ CREATE TABLE Persona (
 
 CREATE TABLE ObraSocial (
     idObraSocial INT IDENTITY(1,1) PRIMARY KEY,
-    RazonSocial VARCHAR(255) NOT NULL
+    RazonSocial VARCHAR(255) NOT NULL,
+    Activo BIT DEFAULT 1
 );
 
 CREATE TABLE Especialidad (
